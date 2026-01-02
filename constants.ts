@@ -1,5 +1,5 @@
 export const CA = "AcKTbch2V9CL6kwhCiEir9dS99wE6xrwdnoCpLrLpump";
-export const TWITTER_LINK = "https://x.com/theaianonymous";
+export const TWITTER_LINK = "https://x.com/AiAnonymoussol";
 export const PUMP_FUN_LINK = "https://pump.fun/coin/AcKTbch2V9CL6kwhCiEir9dS99wE6xrwdnoCpLrLpump";
 
 export const ARTICLE_CONTENT = `
