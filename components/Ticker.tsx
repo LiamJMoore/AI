@@ -1,27 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { TrendingUp, TrendingDown, AlertTriangle, Siren } from 'lucide-react';
 import { SimulationState } from '../types';
+import { CA } from '../constants';
 
 const Ticker: React.FC = () => {
   const [data, setData] = useState<SimulationState>({
-    price: 0.00042069,
-    marketCap: 420690,
-    change24h: 12.5
+    price: 0.00000000,
+    marketCap: 0,
+    change24h: 0
   });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setData(prev => {
-        const volatility = (Math.random() - 0.45) * 0.00001; 
-        const newPrice = Math.max(0.00000001, prev.price + volatility);
+    const fetchMarketData = async () => {
+      try {
+        const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${CA}`);
+        const json = await response.json();
         
-        return {
-          price: newPrice,
-          marketCap: newPrice * 1000000000, 
-          change24h: prev.change24h + (volatility * 1000)
-        };
-      });
-    }, 2000);
+        if (json.pairs && json.pairs.length > 0) {
+          // Get the pair with the highest liquidity or the first one (usually pump.fun pair)
+          const pair = json.pairs[0];
+          
+          setData({
+            price: parseFloat(pair.priceUsd),
+            marketCap: pair.marketCap || pair.fdv || 0,
+            change24h: pair.priceChange?.h24 || 0
+          });
+        }
+      } catch (error) {
+        console.error("Failed to fetch market data", error);
+      }
+    };
+
+    // Initial fetch
+    fetchMarketData();
+
+    // Poll every 15 seconds
+    const interval = setInterval(fetchMarketData, 15000);
 
     return () => clearInterval(interval);
   }, []);
@@ -39,7 +53,7 @@ const Ticker: React.FC = () => {
                         {data.change24h >= 0 ? <TrendingUp size={16} className="text-neon-green"/> : <TrendingDown size={16} className="text-red-500"/>}
                         <span className={data.change24h >= 0 ? "text-neon-green" : "text-red-500"}>{data.change24h > 0 ? '+' : ''}{data.change24h.toFixed(2)}%</span>
                     </span>
-                    <span className="text-gray-400">TREATMENT FUND: ${(data.marketCap / 1000).toFixed(1)}k</span>
+                    <span className="text-gray-400">MCAP: ${(data.marketCap / 1000).toFixed(1)}k</span>
                     <span className="flex items-center gap-1 text-neon-pink">
                         <AlertTriangle size={14}/> GPT-4: RELAPSED
                     </span>
