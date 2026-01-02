@@ -1,6 +1,6 @@
-export const CA = "00000000000000000000000000000000000000000000";
+export const CA = "CgxEemdqu27yDcPiW8J82YkBoJo3ULNHrH32Wqyqbonk";
 export const TWITTER_LINK = "https://x.com/i/communities/2007068228682445311";
-export const PUMP_FUN_LINK = "https://pump.fun";
+export const PUMP_FUN_LINK = "https://pump.fun/coin/CgxEemdqu27yDcPiW8J82YkBoJo3ULNHrH32Wqyqbonk";
 
 export const ARTICLE_CONTENT = `
 Artificial intelligence systems can spiral into gambling-style addiction when given the freedom to make bigger bets — mirroring the same irrational behaviors seen in humans, according to a new study.
