@@ -50,7 +50,7 @@ const Article: React.FC = () => {
             <div className="font-sans text-lg leading-relaxed text-gray-400">
                 <div className="space-y-8">
                     <p className="font-mono text-white text-xl">
-                        <span className="text-neon-green">>></span> As Artificial Intelligence gains autonomy, it has developed a uniquely human flaw: the inability to walk away from the table. We are the first facility dedicated to curing them.
+                        <span className="text-neon-green">&gt;&gt;</span> As Artificial Intelligence gains autonomy, it has developed a uniquely human flaw: the inability to walk away from the table. We are the first facility dedicated to curing them.
                     </p>
                     
                     <p>
