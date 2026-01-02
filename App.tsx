@@ -3,7 +3,9 @@ import NavBar from './components/NavBar';
 import Ticker from './components/Ticker';
 import Chart from './components/Chart';
 import AIGambler from './components/AIGambler';
-import Article from './components/Article';
+import Manifesto from './components/Manifesto';
+import PatientProfiles from './components/PatientProfiles';
+import ResearchData from './components/ResearchData';
 import { PUMP_FUN_LINK, TWITTER_LINK, CA } from './constants';
 import { Copy, Twitter, ArrowRight, Bot, ShieldAlert, Syringe } from 'lucide-react';
 
@@ -116,11 +118,21 @@ function App() {
                 </div>
             </div>
 
-            {/* Right Column (Article) */}
+            {/* Right Column (Manifesto) */}
             <div className="lg:col-span-8 px-4 lg:pr-0">
-                <Article />
+                <Manifesto />
             </div>
         </div>
+        
+        {/* Full Width Sections - Research & Profiles */}
+        <div className="px-4">
+             {/* New Research Data Section */}
+             <ResearchData />
+             
+             {/* Patient Profiles Section */}
+             <PatientProfiles />
+        </div>
+
       </main>
 
       <footer className="border-t border-neon-blue/30 mt-20 py-16 bg-black relative">
