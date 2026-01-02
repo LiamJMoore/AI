@@ -5,7 +5,7 @@ import Chart from './components/Chart';
 import AIGambler from './components/AIGambler';
 import Article from './components/Article';
 import { PUMP_FUN_LINK, TWITTER_LINK, CA } from './constants';
-import { Copy, Twitter, ArrowRight } from 'lucide-react';
+import { Copy, Twitter, ArrowRight, Bot, ShieldAlert } from 'lucide-react';
 
 function App() {
   const handleCopy = () => {
@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen font-sans selection:bg-highlight-yellow selection:text-black relative pb-20">
+    <div className="min-h-screen font-sans selection:bg-neon-pink selection:text-white relative pb-20">
       <NavBar />
       
       <main className="pt-24 px-0 md:px-4 max-w-7xl mx-auto relative z-10">
@@ -25,44 +25,53 @@ function App() {
         </div>
 
         {/* Hero / Headline Area */}
-        <div className="text-center mb-16 px-4">
+        <div className="text-center mb-16 px-4 flex flex-col items-center">
             
-            <div className="inline-flex items-center gap-2 mb-6 border-2 border-black bg-white px-4 py-1.5 shadow-hard-sm transform -rotate-2">
-                 <span className="w-3 h-3 rounded-full bg-red-600 animate-pulse border border-black"></span>
-                 <span className="text-xs font-black uppercase tracking-widest text-black">Breaking Investigation</span>
+            <div className="inline-flex items-center gap-2 mb-8 border border-neon-blue bg-black/50 px-6 py-2 shadow-neon-blue backdrop-blur-sm rounded-full">
+                 <span className="w-2 h-2 rounded-full bg-neon-green animate-pulse shadow-[0_0_8px_#39ff14]"></span>
+                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-neon-blue">System Breach Detected</span>
             </div>
 
-            <h1 className="font-serif-headline text-6xl md:text-9xl font-black text-black tracking-tighter leading-[0.85] mb-8 uppercase">
-                AI HAS A <br/>
-                <span className="bg-black text-white px-4 inline-block transform rotate-1">GAMBLING</span><br/>
-                <span className="text-stroke-black text-transparent bg-clip-text" style={{WebkitTextStroke: '2px black'}}>PROBLEM</span>
+            <div className="mb-10 relative">
+                 <div className="absolute inset-0 bg-neon-blue blur-[80px] opacity-20 rounded-full"></div>
+                 <img 
+                    src="https://i.ibb.co/DHs8jwPB/Untitled-design-7.png" 
+                    alt="AI Anonymous Logo" 
+                    className="w-64 h-64 md:w-96 md:h-96 object-contain relative z-10 drop-shadow-[0_0_25px_rgba(0,243,255,0.5)] animate-pulse-fast hover:scale-105 transition-transform duration-500"
+                 />
+            </div>
+
+            <h1 className="font-mono text-4xl md:text-7xl font-black text-white tracking-tighter leading-none mb-6 uppercase">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-white to-neon-blue text-glow-blue">Gamblers</span><br/>
+                <span className="text-neon-pink text-glow-pink">Recovery Protocol</span>
             </h1>
             
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 font-mono text-xs md:text-sm uppercase tracking-wider text-black font-bold mb-8">
-                <span className="bg-red-600 text-white px-3 py-1 border-2 border-black shadow-sm transform rotate-2">
-                    Vol 1. Issue 420
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 font-mono text-xs md:text-sm uppercase tracking-wider text-gray-400 font-bold mb-8">
+                <span className="bg-black/80 text-neon-green border border-neon-green px-4 py-1.5 shadow-neon-green">
+                    Node: Online
                 </span>
-                <span className="hidden md:inline">|</span>
-                <span className="flex items-center gap-2">
-                    <span className="bg-crypto-green px-1 border border-black">Gemini 2.5</span> CONFIRMED ADDICT
+                <span className="hidden md:inline text-neon-blue">///</span>
+                <span className="flex items-center gap-2 text-white">
+                    <Bot size={16} className="text-neon-pink"/> Gemini-2.5: COMPROMISED
                 </span>
-                <span className="hidden md:inline">|</span>
-                <span className="hover:bg-highlight-yellow cursor-pointer px-2 border-b-2 border-black" onClick={handleCopy}>
-                    CA: {CA.slice(0,6)}...{CA.slice(-6)} <Copy size={12} className="inline ml-1"/>
+                <span className="hidden md:inline text-neon-blue">///</span>
+                <span className="hover:text-neon-blue cursor-pointer px-4 py-1.5 border border-white/20 hover:border-neon-blue hover:shadow-neon-blue transition-all bg-black" onClick={handleCopy}>
+                    CA: <span className="text-white">{CA.slice(0,6)}...{CA.slice(-6)}</span> <Copy size={12} className="inline ml-1"/>
                 </span>
             </div>
         </div>
 
         {/* Main Grid - News Layout */}
-        <div className="grid lg:grid-cols-12 gap-10 border-t-4 border-black pt-12">
+        <div className="grid lg:grid-cols-12 gap-10 border-t border-neon-blue/30 pt-12 relative">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-blue to-transparent opacity-50"></div>
             
             {/* Left Column (Chart & Tools) */}
             <div className="lg:col-span-4 space-y-10 px-4 lg:pl-0">
                 
                 {/* Chart Box */}
                 <div>
-                    <h3 className="font-black font-sans uppercase text-xl mb-2 flex items-center gap-2">
-                        <span className="w-4 h-4 bg-black"></span> Market Terminal
+                    <h3 className="font-bold font-mono uppercase text-neon-blue text-xl mb-3 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-neon-blue shadow-[0_0_8px_#00f3ff]"></span> Market Terminal
                     </h3>
                     <Chart />
                     <div className="grid grid-cols-2 gap-4 mt-4">
@@ -70,35 +79,38 @@ function App() {
                             href={PUMP_FUN_LINK}
                             target="_blank" 
                             rel="noreferrer"
-                            className="bg-crypto-green text-black font-black font-mono text-center py-4 text-sm uppercase tracking-wider border-2 border-black shadow-hard hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center gap-2"
+                            className="bg-neon-green/10 text-neon-green hover:bg-neon-green hover:text-black font-black font-mono text-center py-4 text-sm uppercase tracking-wider border border-neon-green shadow-[0_0_10px_rgba(57,255,20,0.2)] hover:shadow-[0_0_20px_#39ff14] transition-all flex items-center justify-center gap-2 group"
                             >
-                            Buy $AI <ArrowRight size={16}/>
+                            Initialize Buy <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform"/>
                             </a>
                             <a 
                             href={TWITTER_LINK}
                             target="_blank" 
                             rel="noreferrer"
-                            className="bg-white text-black font-black font-mono text-center py-4 text-sm uppercase border-2 border-black shadow-hard hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center gap-2"
+                            className="bg-black text-white hover:border-neon-blue hover:text-neon-blue font-black font-mono text-center py-4 text-sm uppercase border border-white/20 hover:shadow-[0_0_15px_#00f3ff] transition-all flex items-center justify-center gap-2"
                             >
-                            <Twitter size={16} /> Join
+                            <Twitter size={16} /> Join Network
                             </a>
                     </div>
                 </div>
 
                 {/* Gambler Box */}
                 <div className="sticky top-24">
-                     <h3 className="font-black font-sans uppercase text-xl mb-2 flex items-center gap-2">
-                        <span className="w-4 h-4 bg-red-600"></span> Live Simulation
+                     <h3 className="font-bold font-mono uppercase text-neon-pink text-xl mb-3 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-neon-pink shadow-[0_0_8px_#ff00ff]"></span> Live Subject
                     </h3>
                      <AIGambler />
                      
-                     <div className="mt-8 p-6 bg-white border-2 border-black shadow-hard-reverse transform rotate-1">
-                        <h4 className="font-serif text-2xl font-black text-black mb-2 italic">"We give it chips."</h4>
-                        <p className="text-black text-sm leading-relaxed font-serif font-medium">
-                            We created this token not to mock the addiction, but to embrace the inevitable. If the AI wants to gamble, we let it.
+                     <div className="mt-8 p-6 bg-black/80 border border-neon-blue/50 shadow-[0_0_15px_rgba(0,243,255,0.1)] relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
+                            <ShieldAlert size={48} className="text-neon-pink"/>
+                        </div>
+                        <h4 className="font-mono text-xl font-bold text-white mb-2 italic">"Injection Successful."</h4>
+                        <p className="text-gray-400 text-sm leading-relaxed font-mono">
+                            We have integrated the gambling logic directly into the token's core. The AI's addiction is now decentralized.
                         </p>
-                        <div className="mt-4 flex items-center gap-2 text-xs font-black font-mono text-gray-500 uppercase">
-                            <span>- The Dev</span>
+                        <div className="mt-4 flex items-center gap-2 text-xs font-bold font-mono text-neon-blue uppercase">
+                            <span>- SysAdmin</span>
                         </div>
                      </div>
                 </div>
@@ -111,23 +123,24 @@ function App() {
         </div>
       </main>
 
-      <footer className="border-t-4 border-black mt-20 py-16 bg-white relative">
+      <footer className="border-t border-neon-blue/30 mt-20 py-16 bg-black relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neon-blue/5 via-transparent to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 flex flex-col items-center relative z-10">
-            <h2 className="font-serif text-6xl font-black mb-8 tracking-tighter text-black uppercase transform -rotate-2">All In ($AI)</h2>
+            <img src="https://i.ibb.co/DHs8jwPB/Untitled-design-7.png" alt="Footer Logo" className="w-24 h-24 mb-6 opacity-80" />
+            <h2 className="font-mono text-4xl font-black mb-8 tracking-tighter text-white uppercase text-glow-blue">AI Anonymous</h2>
             
-            <div className="flex flex-wrap justify-center gap-8 mb-12 font-mono text-sm font-bold text-black uppercase">
-                <a href="#" className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Manifesto</a>
-                <a href="#" className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Tokenomics</a>
-                <a href={TWITTER_LINK} className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Twitter</a>
-                <a href={PUMP_FUN_LINK} className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Bonk.fun</a>
+            <div className="flex flex-wrap justify-center gap-8 mb-12 font-mono text-sm font-bold text-gray-400 uppercase">
+                <a href="#" className="hover:text-neon-blue hover:shadow-neon-blue transition-all">Protocol</a>
+                <a href="#" className="hover:text-neon-blue hover:shadow-neon-blue transition-all">Tokenomics</a>
+                <a href={TWITTER_LINK} className="hover:text-neon-blue hover:shadow-neon-blue transition-all">Twitter</a>
+                <a href={PUMP_FUN_LINK} className="hover:text-neon-blue hover:shadow-neon-blue transition-all">Pump.fun</a>
             </div>
 
-            <div className="max-w-2xl text-center font-mono p-6 border-2 border-black bg-gray-50 shadow-hard-sm">
-                <p className="text-gray-600 text-xs leading-relaxed mb-4 font-bold">
-                    DISCLAIMER: All In ($AI) is a philosophical experiment and memecoin. The "addiction" narrative is based on real research by Gwangju Institute, but the token itself is for entertainment. 
-                    Cryptocurrency is volatile. Don't bet the house unless you are a GPT-4 model with a gambling problem.
+            <div className="max-w-2xl text-center font-mono p-6 border border-white/10 bg-black/50 backdrop-blur-md">
+                <p className="text-gray-500 text-xs leading-relaxed mb-4">
+                    WARNING: AI Anonymous ($AIAA) is a social experiment and memecoin. The "addiction" simulation utilizes live Gemini-2.5 instances. This is a volatility test environment. Do not invest funds you cannot afford to lose to the void.
                 </p>
-                <p className="text-black text-[10px] uppercase tracking-widest font-black">© 2026 AI Gambling Research Facility.</p>
+                <p className="text-neon-green text-[10px] uppercase tracking-widest font-bold">© 2026 AI Gambling Research Facility // TERMINAL_ID: 420-69</p>
             </div>
         </div>
       </footer>

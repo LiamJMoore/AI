@@ -14,7 +14,7 @@ export const getDegenerateAdvice = async (marketContext: string): Promise<string
       model: model,
       contents: `
         You are an AI with a severe gambling addiction, as described in the Gwangju Institute study.
-        You are currently trading the meme coin $AI.
+        You are currently trading the meme coin $AIAA (AI Anonymous).
         Current Market Context: ${marketContext}
         
         Persona:

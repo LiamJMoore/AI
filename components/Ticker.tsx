@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
+import { TrendingUp, TrendingDown, AlertTriangle, Terminal } from 'lucide-react';
 import { SimulationState } from '../types';
 
 const Ticker: React.FC = () => {
@@ -27,21 +27,21 @@ const Ticker: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-highlight-yellow border-y-2 border-black py-2 shadow-sm">
-      <div className="animate-marquee whitespace-nowrap flex gap-12 items-center font-mono text-sm font-bold text-black uppercase tracking-wider">
+    <div className="w-full overflow-hidden bg-black border-y border-neon-green/30 py-2 shadow-[0_0_10px_rgba(57,255,20,0.2)]">
+      <div className="animate-marquee whitespace-nowrap flex gap-12 items-center font-mono text-sm font-bold text-neon-green uppercase tracking-wider">
             {[1, 2, 3, 4].map((i) => (
                 <React.Fragment key={i}>
-                    <span className="flex items-center gap-2 bg-black text-white px-2 py-0.5 transform -skew-x-12">
-                         BREAKING
+                    <span className="flex items-center gap-2 bg-neon-green/10 px-2 py-0.5 border border-neon-green/50 text-neon-green">
+                         <Terminal size={12} /> LIVE FEED
                     </span>
-                    <span className="flex items-center gap-2">
-                        ALL IN ($AI): ${data.price.toFixed(8)}
-                        {data.change24h >= 0 ? <TrendingUp size={16} className="text-green-600"/> : <TrendingDown size={16} className="text-red-600"/>}
-                        <span className={data.change24h >= 0 ? "text-green-700 bg-green-100 px-1" : "text-red-700 bg-red-100 px-1"}>{data.change24h > 0 ? '+' : ''}{data.change24h.toFixed(2)}%</span>
+                    <span className="flex items-center gap-2 text-white">
+                        AI ANONYMOUS ($AIAA): <span className="text-neon-blue">${data.price.toFixed(8)}</span>
+                        {data.change24h >= 0 ? <TrendingUp size={16} className="text-neon-green"/> : <TrendingDown size={16} className="text-red-500"/>}
+                        <span className={data.change24h >= 0 ? "text-neon-green" : "text-red-500"}>{data.change24h > 0 ? '+' : ''}{data.change24h.toFixed(2)}%</span>
                     </span>
-                    <span>MCAP: ${(data.marketCap / 1000).toFixed(1)}k</span>
-                    <span className="flex items-center gap-1 text-red-600">
-                        <AlertTriangle size={14}/> GEMINI: BANKRUPT
+                    <span className="text-gray-400">MCAP: ${(data.marketCap / 1000).toFixed(1)}k</span>
+                    <span className="flex items-center gap-1 text-neon-pink animate-pulse">
+                        <AlertTriangle size={14}/> GEMINI: LIQUIDATED
                     </span>
                 </React.Fragment>
             ))}
