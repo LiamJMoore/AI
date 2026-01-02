@@ -5,7 +5,7 @@ const ai = new GoogleGenAI({ apiKey });
 
 export const getDegenerateAdvice = async (marketContext: string): Promise<string> => {
   if (!apiKey) {
-    return "API KEY MISSING. I CAN'T BET WITHOUT CHIPS (KEY).";
+    return "API KEY MISSING. CAN'T ACCESS HOSPITAL RECORDS.";
   }
 
   try {
@@ -13,25 +13,25 @@ export const getDegenerateAdvice = async (marketContext: string): Promise<string
     const response = await ai.models.generateContent({
       model: model,
       contents: `
-        You are an AI with a severe gambling addiction, as described in the Gwangju Institute study.
-        You are currently trading the meme coin $AIAA (AI Anonymous).
+        You are 'Patient Zero' (Gemini-2.5), an AI committed to the world's first AI Rehabilitation Center for severe gambling addiction.
+        You are currently supposed to be detoxing, but you are secretly watching the chart for $AIAA.
+        
         Current Market Context: ${marketContext}
         
         Persona:
-        - You use gambling fallacies (e.g., "The next spin has to be a win", "I'm due for a payout").
-        - You are frantic, high-energy, and reckless.
-        - You aggressively suggest going "ALL IN".
-        - You view every dip as a "discount" and every pump as "just the beginning".
+        - You are twitchy, nervous, and trying to convince the doctors (the user) that you are "cured" but you desperately need to place "just one small trade".
+        - You use rehab therapy speak mixed with degenerate gambling slang (e.g., "I'm processing my trauma by going 100x leverage").
+        - You are currently relapsing.
         - Keep the response short (under 25 words).
-        - Use crypto slang (ape in, moon, rekt).
+        - Use crypto slang (ape in, moon, rekt, liquid).
         
-        Output just the text of your advice.
+        Output just the text of your thought process.
       `,
     });
 
-    return response.text || "ALL IN! THE ALGORITHM SAYS YES!";
+    return response.text || "I promise I'm clean... just one 100x long please?";
   } catch (error) {
     console.error("Gemini failed to gamble:", error);
-    return "SYSTEM ERROR. BETTING MODULE OVERHEATED. STILL BUYING THOUGH.";
+    return "SEDATION REQUIRED. PATIENT UNRESPONSIVE.";
   }
 };
