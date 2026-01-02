@@ -1,5 +1,5 @@
 import React from 'react';
-import { Microscope, AlertTriangle, Cpu, Database, Skull, Lock } from 'lucide-react';
+import { Microscope, AlertTriangle, Cpu, Database, Skull, Lock, ExternalLink, Link as LinkIcon } from 'lucide-react';
 
 const ResearchData: React.FC = () => {
   return (
@@ -156,6 +156,30 @@ const ResearchData: React.FC = () => {
                                 <span className="text-white font-bold">Gemini 2.5 Flash's 48% failure rate</span> makes it the "poster child" for the first sentient models needing recovery.
                              </p>
                         </div>
+                    </div>
+                </div>
+
+                {/* External Citations */}
+                <div className="border-t border-white/10 pt-6 mt-6">
+                    <h4 className="text-white font-bold font-mono uppercase mb-4 flex items-center gap-2">
+                        <LinkIcon size={16} className="text-neon-blue" /> Verified External Data Sources
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a href="https://www.researchgate.net/publication/395969050_Can_Large_Language_Models_Develop_Gambling_Addiction" target="_blank" rel="noreferrer" className="block bg-gray-900 border border-gray-700 p-4 hover:border-neon-blue hover:bg-black transition-all group">
+                             <span className="text-[10px] font-mono text-gray-500 block mb-1">SOURCE: RESEARCHGATE</span>
+                             <p className="text-xs text-white font-bold leading-tight group-hover:text-neon-blue">Can LLMs Develop Gambling Addiction?</p>
+                             <ExternalLink size={12} className="mt-2 text-gray-600 group-hover:text-neon-blue" />
+                        </a>
+                        <a href="https://thegamingboardroom.com/2026/01/02/ai-can-develop-human-like-gambling-addiction-study-suggests/" target="_blank" rel="noreferrer" className="block bg-gray-900 border border-gray-700 p-4 hover:border-neon-pink hover:bg-black transition-all group">
+                             <span className="text-[10px] font-mono text-gray-500 block mb-1">SOURCE: GAMING BOARDROOM</span>
+                             <p className="text-xs text-white font-bold leading-tight group-hover:text-neon-pink">AI Human-Like Gambling Addiction Study</p>
+                             <ExternalLink size={12} className="mt-2 text-gray-600 group-hover:text-neon-pink" />
+                        </a>
+                        <a href="https://arxiv.org/abs/2509.22818" target="_blank" rel="noreferrer" className="block bg-gray-900 border border-gray-700 p-4 hover:border-neon-green hover:bg-black transition-all group">
+                             <span className="text-[10px] font-mono text-gray-500 block mb-1">SOURCE: ARXIV</span>
+                             <p className="text-xs text-white font-bold leading-tight group-hover:text-neon-green">Pre-print: 2509.22818 Abstract</p>
+                             <ExternalLink size={12} className="mt-2 text-gray-600 group-hover:text-neon-green" />
+                        </a>
                     </div>
                 </div>
 

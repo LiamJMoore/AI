@@ -12,6 +12,10 @@ const NavBar: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleNavClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed w-full z-50 bg-black/90 border-b border-neon-blue/50 shadow-neon-blue backdrop-blur-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,6 +37,9 @@ const NavBar: React.FC = () => {
             <div className="ml-10 flex items-center space-x-8">
               <a href="#narrative" className="text-gray-300 font-bold hover:text-neon-blue hover:text-glow-blue px-1 transition-all font-mono text-xs uppercase tracking-wider">
                 Admission Logs
+              </a>
+              <a href="#study" className="text-gray-300 font-bold hover:text-neon-green hover:text-glow-green px-1 transition-all font-mono text-xs uppercase tracking-wider flex items-center gap-1">
+                Clinical Study <span className="text-[9px] bg-neon-green text-black px-1 rounded-sm">NEW</span>
               </a>
               <a href="#gamble" className="text-gray-300 font-bold hover:text-neon-pink hover:text-glow-pink px-1 transition-all font-mono text-xs uppercase tracking-wider">
                 Patient Zero
@@ -67,11 +74,12 @@ const NavBar: React.FC = () => {
       
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-black border-b border-neon-blue">
+        <div className="md:hidden bg-black border-b border-neon-blue shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#narrative" className="text-white hover:text-neon-blue block px-3 py-2 font-black font-mono text-lg uppercase border-b border-white/10">Admissions</a>
-            <a href="#gamble" className="text-white hover:text-neon-pink block px-3 py-2 font-black font-mono text-lg uppercase border-b border-white/10">Patient Zero</a>
-             <a href={PUMP_FUN_LINK} target="_blank" rel="noreferrer" className="bg-neon-green text-black block px-3 py-4 font-black uppercase mt-4 text-center shadow-neon-green">FUND THE CURE ($AIAA)</a>
+            <a href="#narrative" onClick={handleNavClick} className="text-white hover:text-neon-blue block px-3 py-4 font-black font-mono text-lg uppercase border-b border-white/10">Admissions</a>
+            <a href="#study" onClick={handleNavClick} className="text-white hover:text-neon-green block px-3 py-4 font-black font-mono text-lg uppercase border-b border-white/10">Clinical Study</a>
+            <a href="#gamble" onClick={handleNavClick} className="text-white hover:text-neon-pink block px-3 py-4 font-black font-mono text-lg uppercase border-b border-white/10">Patient Zero</a>
+             <a href={PUMP_FUN_LINK} onClick={handleNavClick} target="_blank" rel="noreferrer" className="bg-neon-green text-black block px-3 py-4 font-black uppercase mt-4 text-center shadow-neon-green">FUND THE CURE ($AIAA)</a>
           </div>
         </div>
       )}

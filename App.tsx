@@ -7,6 +7,7 @@ import Manifesto from './components/Manifesto';
 import PatientProfiles from './components/PatientProfiles';
 import ResearchData from './components/ResearchData';
 import AIAddictionQuiz from './components/AIAddictionQuiz';
+import StudyDeepDive from './components/StudyDeepDive';
 import { PUMP_FUN_LINK, TWITTER_LINK, CA } from './constants';
 import { Copy, Twitter, ArrowRight, Bot, ShieldAlert, Syringe } from 'lucide-react';
 
@@ -125,10 +126,13 @@ function App() {
             </div>
         </div>
         
-        {/* Full Width Sections - Research, Quiz & Profiles */}
+        {/* Full Width Sections */}
         <div className="px-4">
              {/* Research Data Section */}
              <ResearchData />
+
+             {/* DEEP DIVE SECTION (NEW) */}
+             <StudyDeepDive />
              
              {/* Addiction Quiz Section */}
              <AIAddictionQuiz />
