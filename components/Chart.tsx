@@ -30,7 +30,7 @@ const Chart: React.FC = () => {
       
       <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-white px-3 py-1 border-2 border-black shadow-hard-sm">
          <TrendingUp size={16} className="text-crypto-green"/>
-         <span className="text-xs font-black font-sans uppercase tracking-widest">LIVE: Pump.Fun</span>
+         <span className="text-xs font-black font-sans uppercase tracking-widest">LIVE: Bonk.Fun</span>
       </div>
 
       <div className="p-4 h-full bg-paper-texture">

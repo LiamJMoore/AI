@@ -141,7 +141,7 @@ const Article: React.FC = () => {
                             </li>
                             <li className="group cursor-pointer">
                                 <span className="bg-highlight-yellow px-1 font-black text-xs inline-block mb-1">VIRAL</span>
-                                <span className="group-hover:underline leading-tight font-bold text-lg block">All In ($AI) Tokens going bankrupt on Pump.fun</span>
+                                <span className="group-hover:underline leading-tight font-bold text-lg block">All In ($AI) Tokens going bankrupt on Bonk.fun</span>
                             </li>
                          </ul>
                     </div>

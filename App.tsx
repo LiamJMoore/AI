@@ -119,7 +119,7 @@ function App() {
                 <a href="#" className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Manifesto</a>
                 <a href="#" className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Tokenomics</a>
                 <a href={TWITTER_LINK} className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Twitter</a>
-                <a href={PUMP_FUN_LINK} className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Pump.fun</a>
+                <a href={PUMP_FUN_LINK} className="hover:bg-highlight-yellow hover:px-2 transition-all border-b-2 border-transparent hover:border-black">Bonk.fun</a>
             </div>
 
             <div className="max-w-2xl text-center font-mono p-6 border-2 border-black bg-gray-50 shadow-hard-sm">
