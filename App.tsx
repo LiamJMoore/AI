@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from './components/NavBar';
 import Ticker from './components/Ticker';
 import Chart from './components/Chart';
@@ -8,18 +8,39 @@ import PatientProfiles from './components/PatientProfiles';
 import ResearchData from './components/ResearchData';
 import AIAddictionQuiz from './components/AIAddictionQuiz';
 import StudyDeepDive from './components/StudyDeepDive';
+import GlitchText from './components/GlitchText';
 import { PUMP_FUN_LINK, TWITTER_LINK, CA } from './constants';
 import { Copy, Twitter, ArrowRight, Bot, ShieldAlert, Syringe } from 'lucide-react';
 
 function App() {
+  const [crtEnabled, setCrtEnabled] = useState(true);
+
   const handleCopy = () => {
     navigator.clipboard.writeText(CA);
     alert("Contract Address Copied!");
   };
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <div className="min-h-screen font-sans selection:bg-neon-pink selection:text-white relative pb-20">
-      <NavBar />
+    <div className="min-h-screen font-sans selection:bg-neon-pink selection:text-white relative pb-20 overflow-x-hidden">
+      
+      {/* CRT Overlay Effect */}
+      {crtEnabled && (
+        <div className="fixed inset-0 z-[100] pointer-events-none crt-overlay crt-flicker mix-blend-hard-light opacity-20"></div>
+      )}
+
+      <NavBar crtEnabled={crtEnabled} toggleCrt={() => setCrtEnabled(!crtEnabled)} />
       
       <main className="pt-24 px-0 md:px-4 max-w-7xl mx-auto relative z-10">
         
@@ -45,9 +66,13 @@ function App() {
                  />
             </div>
 
-            <h1 className="font-mono text-4xl md:text-7xl font-black text-white tracking-tighter leading-none mb-6 uppercase">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-white to-neon-blue text-glow-blue">First AI</span><br/>
-                <span className="text-neon-pink text-glow-pink">Rehab Center</span>
+            <h1 className="font-mono text-4xl md:text-7xl font-black text-white tracking-tighter leading-none mb-6 uppercase flex flex-col items-center">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-white to-neon-blue text-glow-blue block">
+                   <GlitchText text="First AI" />
+                </span>
+                <span className="text-neon-pink text-glow-pink block mt-2">
+                   <GlitchText text="Rehab Center" />
+                </span>
             </h1>
             
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 font-mono text-xs md:text-sm uppercase tracking-wider text-gray-400 font-bold mb-8">

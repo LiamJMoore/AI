@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FileText, Activity, Brain, Zap, AlertTriangle, Microscope, Layers, ChevronRight, BarChart3, Lock, Unlock, Database, Terminal, Cpu, Scale } from 'lucide-react';
+import GlitchText from './GlitchText';
 
 const StudyDeepDive: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'experiment' | 'behavior' | 'neural' | 'triggers'>('experiment');
@@ -22,7 +23,7 @@ const StudyDeepDive: React.FC = () => {
                             <span className="text-neon-green">GIST AI Lab</span>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black font-mono text-white uppercase tracking-tighter leading-none mb-2">
-                            Can LLMs Develop <span className="text-neon-pink text-glow-pink">Gambling Addiction?</span>
+                            Can LLMs Develop <span className="text-neon-pink text-glow-pink"><GlitchText text="Gambling Addiction?" /></span>
                         </h2>
                         <p className="text-gray-400 font-mono text-sm max-w-2xl leading-relaxed">
                             A comprehensive autopsy of algorithmic risk-taking. Researchers subjected GPT-4o, Gemini 2.5, and Claude 3.5 to 12,800 slot machine trials. The findings confirm that AI models internalize human cognitive biases, including "Loss Chasing" and the "Illusion of Control."

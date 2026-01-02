@@ -1,5 +1,6 @@
 import React from 'react';
 import { Microscope, AlertTriangle, Cpu, Database, Skull, Lock, ExternalLink, Link as LinkIcon } from 'lucide-react';
+import GlitchText from './GlitchText';
 
 const ResearchData: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const ResearchData: React.FC = () => {
 
             <div className="relative z-10 p-4 md:p-0">
                 <h2 className="text-3xl md:text-5xl font-black font-mono text-white mb-2 uppercase tracking-tighter">
-                    The Hall of <span className="text-red-500 text-glow-pink">Shame</span>
+                    <GlitchText text="The Hall of" /> <span className="text-red-500 text-glow-pink"><GlitchText text="Shame" /></span>
                 </h2>
                 <h3 className="text-neon-green font-mono text-sm md:text-lg mb-8 uppercase tracking-widest border-b border-white/10 pb-4">
                     /// Subject: Biggest AI Gamblers

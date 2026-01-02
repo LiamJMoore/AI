@@ -43,6 +43,11 @@
       }
     </script>
     <style>
+      :root {
+        --mouse-x: 50%;
+        --mouse-y: 50%;
+      }
+
       body {
         background-color: #050505;
         color: #e0e0e0;
@@ -52,6 +57,50 @@
           linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
         background-size: 30px 30px;
+        position: relative;
+      }
+
+      /* Flashlight Effect */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          600px circle at var(--mouse-x) var(--mouse-y), 
+          rgba(0, 243, 255, 0.04), 
+          transparent 40%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+      
+      /* CRT Overlay */
+      .crt-overlay {
+        background: linear-gradient(
+          rgba(18, 16, 16, 0) 50%, 
+          rgba(0, 0, 0, 0.25) 50%
+        ), linear-gradient(
+          90deg, 
+          rgba(255, 0, 0, 0.06), 
+          rgba(0, 255, 0, 0.02), 
+          rgba(0, 0, 255, 0.06)
+        );
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      
+      .crt-flicker {
+        animation: flicker 0.15s infinite;
+        opacity: 0.1; /* Base opacity */
+      }
+
+      @keyframes flicker {
+        0% { opacity: 0.1; }
+        50% { opacity: 0.15; }
+        100% { opacity: 0.1; }
       }
       
       .font-serif-headline {

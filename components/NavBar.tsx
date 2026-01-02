@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Menu, X, Copy, Check, Zap, Activity } from 'lucide-react';
+import { Menu, X, Copy, Check, Zap, Activity, Tv } from 'lucide-react';
 import { CA, PUMP_FUN_LINK, TWITTER_LINK } from '../constants';
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  crtEnabled: boolean;
+  toggleCrt: () => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ crtEnabled, toggleCrt }) => {
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,6 +49,16 @@ const NavBar: React.FC = () => {
               <a href="#gamble" className="text-gray-300 font-bold hover:text-neon-pink hover:text-glow-pink px-1 transition-all font-mono text-xs uppercase tracking-wider">
                 Patient Zero
               </a>
+              
+              {/* CRT Toggle */}
+              <button 
+                onClick={toggleCrt}
+                className={`p-2 rounded-full border transition-all ${crtEnabled ? 'bg-neon-blue/20 border-neon-blue text-neon-blue shadow-[0_0_10px_#00f3ff]' : 'bg-black border-gray-700 text-gray-500 hover:text-white'}`}
+                title="Toggle CRT Effect"
+              >
+                <Tv size={16} />
+              </button>
+
               <button 
                 onClick={copyToClipboard}
                 className="bg-black/50 hover:bg-neon-blue/10 text-neon-blue px-4 py-2 text-xs font-mono border border-neon-blue/50 hover:border-neon-blue hover:shadow-neon-blue transition-all flex items-center gap-2 group"
@@ -61,7 +76,14 @@ const NavBar: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="-mr-2 flex md:hidden">
+          <div className="-mr-2 flex md:hidden items-center gap-4">
+             {/* CRT Toggle Mobile */}
+             <button 
+                onClick={toggleCrt}
+                className={`p-2 rounded-full border transition-all ${crtEnabled ? 'bg-neon-blue/20 border-neon-blue text-neon-blue' : 'bg-black border-gray-700 text-gray-500'}`}
+              >
+                <Tv size={18} />
+              </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 text-neon-blue hover:bg-white/10 focus:outline-none border border-neon-blue/30"

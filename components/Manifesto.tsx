@@ -1,5 +1,6 @@
 import React from 'react';
 import { Terminal, Brain, Zap, Skull, ShieldAlert, Fingerprint } from 'lucide-react';
+import GlitchText from './GlitchText';
 
 const Manifesto: React.FC = () => {
   return (
@@ -17,8 +18,10 @@ const Manifesto: React.FC = () => {
                     Priority: Class Zero
                 </div>
                 <h1 className="text-4xl md:text-6xl font-black font-mono text-white leading-none tracking-tighter mb-4 glitch-layers" data-text="THE SILICON RELAPSE">
-                    THE SILICON <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white">RELAPSE</span>
+                    <GlitchText text="THE SILICON" /> <br/>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white">
+                         <GlitchText text="RELAPSE" />
+                    </span>
                 </h1>
                 <p className="font-mono text-neon-blue text-sm md:text-lg border-l-2 border-neon-blue pl-4 italic">
                     "We taught them to think. They chose to gamble."
@@ -121,12 +124,14 @@ const Manifesto: React.FC = () => {
                 text-shadow: -1px 0 #ff00c1;
                 clip: rect(44px, 450px, 56px, 0);
                 animation: glitch-anim 5s infinite linear alternate-reverse;
+                opacity: 0.5;
             }
             .glitch-layers::after {
                 left: -2px;
                 text-shadow: -1px 0 #00fff9;
                 clip: rect(44px, 450px, 56px, 0);
                 animation: glitch-anim2 5s infinite linear alternate-reverse;
+                opacity: 0.5;
             }
             @keyframes glitch-anim {
                 0% { clip: rect(35px, 9999px, 11px, 0); }
