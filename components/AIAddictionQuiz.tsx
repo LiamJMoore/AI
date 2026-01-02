@@ -317,7 +317,7 @@ const AIAddictionQuiz: React.FC = () => {
                             
                             <div className="min-h-[160px] flex items-center justify-center mb-8">
                                 <h3 className="text-xl md:text-3xl font-bold font-mono text-white leading-tight">
-                                    <span className="text-neon-blue mr-4">>>></span>
+                                    <span className="text-neon-blue mr-4">{">>>"}</span>
                                     {questions[currentQuestion].text}
                                     <span className="text-neon-blue ml-2 animate-pulse">_</span>
                                 </h3>
