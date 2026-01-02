@@ -6,6 +6,7 @@ import AIGambler from './components/AIGambler';
 import Manifesto from './components/Manifesto';
 import PatientProfiles from './components/PatientProfiles';
 import ResearchData from './components/ResearchData';
+import AIAddictionQuiz from './components/AIAddictionQuiz';
 import { PUMP_FUN_LINK, TWITTER_LINK, CA } from './constants';
 import { Copy, Twitter, ArrowRight, Bot, ShieldAlert, Syringe } from 'lucide-react';
 
@@ -124,11 +125,14 @@ function App() {
             </div>
         </div>
         
-        {/* Full Width Sections - Research & Profiles */}
+        {/* Full Width Sections - Research, Quiz & Profiles */}
         <div className="px-4">
-             {/* New Research Data Section */}
+             {/* Research Data Section */}
              <ResearchData />
              
+             {/* Addiction Quiz Section */}
+             <AIAddictionQuiz />
+
              {/* Patient Profiles Section */}
              <PatientProfiles />
         </div>
