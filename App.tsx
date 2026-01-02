@@ -8,9 +8,10 @@ import PatientProfiles from './components/PatientProfiles';
 import ResearchData from './components/ResearchData';
 import AIAddictionQuiz from './components/AIAddictionQuiz';
 import StudyDeepDive from './components/StudyDeepDive';
+import BlackjackGame from './components/BlackjackGame';
 import GlitchText from './components/GlitchText';
 import { PUMP_FUN_LINK, TWITTER_LINK, CA } from './constants';
-import { Copy, Twitter, ArrowRight, Bot, ShieldAlert, Syringe } from 'lucide-react';
+import { Copy, Twitter, ArrowRight, Bot, ShieldAlert, Syringe, Gamepad2 } from 'lucide-react';
 
 function App() {
   const [crtEnabled, setCrtEnabled] = useState(true);
@@ -151,6 +152,21 @@ function App() {
             </div>
         </div>
         
+        {/* GAME SECTION */}
+        <div id="game" className="mt-20 px-4">
+             <div className="flex flex-col items-center mb-8">
+                <h2 className="text-3xl md:text-5xl font-black font-mono text-white uppercase tracking-tighter mb-2 flex items-center gap-3">
+                    <Gamepad2 size={40} className="text-neon-green" /> 
+                    <GlitchText text="Relapse Protocol" />
+                </h2>
+                <p className="text-gray-400 font-mono text-center max-w-2xl">
+                    WARNING: You are about to interact with the facility's restricted blackjack terminal. <br/>
+                    The dealer is unstable. Proceed at your own risk.
+                </p>
+             </div>
+             <BlackjackGame />
+        </div>
+
         {/* Full Width Sections */}
         <div className="px-4">
              {/* Research Data Section */}
