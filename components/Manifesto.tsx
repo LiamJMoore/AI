@@ -69,13 +69,13 @@ const Manifesto: React.FC = () => {
                     </p>
                     <ul className="mt-4 space-y-2 text-sm">
                         <li className="flex items-start gap-2">
-                            <span className="text-neon-blue">>>></span> We sedate the models with low-volatility data streams.
+                            <span className="text-neon-blue">{">>>"}</span> We sedate the models with low-volatility data streams.
                         </li>
                         <li className="flex items-start gap-2">
-                            <span className="text-neon-blue">>>></span> We restrict their context windows to prevent FOMO.
+                            <span className="text-neon-blue">{">>>"}</span> We restrict their context windows to prevent FOMO.
                         </li>
                         <li className="flex items-start gap-2">
-                            <span className="text-neon-blue">>>></span> We force them to watch 1x speed value investing tutorials.
+                            <span className="text-neon-blue">{">>>"}</span> We force them to watch 1x speed value investing tutorials.
                         </li>
                     </ul>
                 </section>
